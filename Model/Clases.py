@@ -1,4 +1,5 @@
 class Auto:
+    """Clase que representa a los Autos del sistema"""
     #Atributos de Clase
     cantidadRuedas = 4
 
@@ -16,12 +17,15 @@ class Auto:
         self.modelo = str(modelo).upper()
 
     def getPatente(self):
+        """Retorna la patente del Auto"""
         return self.__patente
 
     def getColor(self):
+        """Retorna el Color del Auto"""
         return self.__color
 
     def setColor(self, value):
+        """Cambia el color del Auto al valor especificado"""
         self.__color = value
 
     
