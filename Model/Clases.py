@@ -1,3 +1,5 @@
+import os
+
 class Auto:
     """Clase que representa a los Autos del sistema"""
     #Atributos de Clase
@@ -20,6 +22,9 @@ class Auto:
         """Retorna la patente del Auto"""
         return self.__patente
 
+    def uptPatente(self, pat):
+        self.__patente = pat
+
     def getColor(self):
         """Retorna el Color del Auto"""
         return self.__color
@@ -28,7 +33,8 @@ class Auto:
         """Cambia el color del Auto al valor especificado"""
         self.__color = value
 
-    
+    def getInfo(self):
+        return f"Patente: {self.__patente}, Marca: {self.marca}, Modelo: {self.modelo}, Color: {self.__color}, Num Chasis: {self.nchasis}, Tipo Auto: {self.tipoAuto}, Tipo Transmision: {self.tipoTransmision}, Año: {self.year}"
 
 class Mecanico:
     def __init__(self, nom, ape, edad, tel):
@@ -42,7 +48,8 @@ class Mecanico:
         else:
             self.mayorDeEdad = False
 
-
+    def getInfo(self):
+        return f"Nombre: {self.nombre}, Apellido: {self.apellido}, Edad: {self.edad}, Telefono: {self.telefono}"
 
 class Reparacion:
     def __init__(self, auto, mecanico, costo, repuestos):
@@ -58,13 +65,8 @@ class Reparacion:
     def cambiarColor(self, color):
         self.autoReparado.setColor(color)
 
-
 class Cliente:
     pass
-
-
-
-
 
 class Perro:
     #Atributo de Clase
@@ -76,3 +78,21 @@ class Perro:
 class Math:
     #Atributo de Clase
     PI = 3.1416
+
+class Menu:
+
+    def MostrarMenu():
+        print("-----------------------------SISTEMA DE TALLER MECANICO-----------------------------")
+        print(" ")
+        #Opciones de Insert
+        print("Presiona 1 para Agregar Auto: ")
+        print("Presiona 2 para Agregar Mecanico: ")
+        print("Presiona 3 para Agregar Reparacion: ")
+
+        #Opciones de Leer
+        print("Presiona 4 para Ver Autos del Sistema: ")
+        print("Presiona 5 para Ver Mecanicos del Sistema: ")
+
+
+    def LimpiarConsola():
+        os.system('cls' if os.name=='nt' else 'clear')

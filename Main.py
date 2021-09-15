@@ -9,8 +9,7 @@ Auto1 = Auto(
     modelo="ceRATo",
     tipoTrans="Automatico",
     tipoAuto="Sedan",
-    year=2013
-)
+    year=2013)
 
 Auto2 = Auto(
     chas="JKFSUYSFDHRWESDH23",
@@ -20,8 +19,9 @@ Auto2 = Auto(
     modelo="ceRATo",
     tipoTrans="aUtoMaTiCo",
     tipoAuto="sEdan",
-    year=2013
-)
+    year=2013)
+
+Auto2.uptPatente("NuevaPatente")
 
 Meca1 = Mecanico(nom="Juan", ape="Ramirez", edad=35, tel="+56912345678")
 Meca2 = Mecanico("Daniel", "Gonzalez", 45, "+56987654321")
@@ -34,8 +34,8 @@ reparacionKia = Reparacion(
     auto=Auto1,
     mecanico=Meca2,
     costo=285000,
-    repuestos=listaRepuestos
-)
+    repuestos=listaRepuestos)
+
 reparacionKia.cambiarColor("Verde")
 
 #reparacionKia.autoReparado.patente = "JAJAJAJAJAJA"
@@ -47,6 +47,13 @@ print(Auto1.getColor())
 
 print(Auto1.__doc__) # Clase que representa a los Autos del sistema
 print(str.__doc__)
+
+
+
+print(Auto2.__patente)
+
+auto = "HOLA" #Set
+print(auto) #Get
 
 
 
