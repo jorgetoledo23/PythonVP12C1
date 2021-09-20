@@ -29,13 +29,46 @@ while True:
         print("Auto Guardado!")
         input("Presione una tecla para volver al Menu Principal.")
 
-    if (opcionSeleccionada == "4"):
+
+    if (opcionSeleccionada == "3"):
         Menu.LimpiarConsola()
-        print("Opcion Seleccionada: 4 Ver Autos")
-        print("")
+        #Logica para Agregar un Auto a la Base de Datos
+        print("---------------Opcion Seleccionada: Agregar Reparacion.----------------")
+        print("------------------Listado de Mecanicos--------------------")
+
+        i = 1
+        for M in listaMecanicos:
+            print(f"{i} - {M.getInfo()}")
+            i += 1
+
+        opcion = int(input("Selecciona el Numero del Mecanico: "))
+        mecanicoSeleccionado = listaMecanicos[opcion - 1]
+
+        i = 1
         for A in listaAutos:
-            print(A.getInfo())
-        input("Presione una tecla para volver al Menu Principal.")
+            print(f"{i} - {A.getInfo()}")
+            i += 1
+
+        opcion = int(input("Selecciona el Numero del Auto: "))
+        autoSeleccionado = listaAutos[opcion - 1]
+
+        costo = input("Ingresa el Valor de la Reparacion: ")
+
+        repuesto = input("Ingresa el repuesto de la Reparacion: ")
+
+        R = Reparacion(autoSeleccionado, mecanicoSeleccionado, costo, repuesto)
+        listaReparaciones.append(R)
+        #print(mecanicoSeleccionado.getInfo())
+        input("Reparacion Ingresada Correctamente. Presiona Enter para continuar...")
+
+
+
+
+
+
+
+
+    
 
     if (opcionSeleccionada == "2"):
         Menu.LimpiarConsola()
@@ -57,4 +90,20 @@ while True:
         print("")
         for M in listaMecanicos:
             print(M.getInfo())
+        input("Presione una tecla para volver al Menu Principal.")
+    
+    if (opcionSeleccionada == "6"):
+        Menu.LimpiarConsola()
+        print("Opcion Seleccionada: 6 Ver Reparaciones")
+        print("")
+        for R in listaReparaciones:
+            print(R.getInfo())
+        input("Presione una tecla para volver al Menu Principal.")
+
+    if (opcionSeleccionada == "4"):
+        Menu.LimpiarConsola()
+        print("Opcion Seleccionada: 4 Ver Autos")
+        print("")
+        for A in listaAutos:
+            print(A.getInfo())
         input("Presione una tecla para volver al Menu Principal.")

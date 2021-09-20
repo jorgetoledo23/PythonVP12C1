@@ -58,7 +58,7 @@ class Reparacion:
         self.costo = costo
         self.respuestosUtilziados = repuestos
 
-    def getInfoReparacion(self):
+    def getInfo(self):
         infoReparacion = f"INFO REPARACION: Auto Patente: {self.autoReparado.getPatente()}, Color: {self.autoReparado.getColor()}, Mecanico Asignado: {self.mecanicoAsignado.nombre} {self.mecanicoAsignado.apellido}, COSTO TOTAL ${self.costo}" 
         return infoReparacion
 
@@ -67,6 +67,7 @@ class Reparacion:
 
 class Cliente:
     pass
+
 
 class Perro:
     #Atributo de Clase
