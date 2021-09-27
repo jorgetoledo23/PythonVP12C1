@@ -7,67 +7,73 @@ class Auto:
 
     #Atributos de Instancia
     #Constructor
-    def __init__(self, chas, pat, col, marca, modelo, tipoTrans, tipoAuto, year):
-        self.year = year
-        self.nchasis = str(chas).upper()
-        self.marca = str(marca).lower()
+    def __init__(self, pat, chas, col, marca, modelo, year):
         #Atributo Privado ==> Encapsular
-        self.__patente = str(pat).upper()
-        self.__color = str(col).upper()
-        self.tipoAuto = str(tipoAuto).upper()
-        self.tipoTransmision = str(tipoTrans).upper()
-        self.modelo = str(modelo).upper()
+        self.__Year = year
+        self.__Nchasis = str(chas).upper()
+        self.__Marca = str(marca).lower()
+        self.__Patente = str(pat).upper()
+        self.__Color = str(col).upper()
+        self.__Modelo = str(modelo).upper()
 
     def getPatente(self):
         """Retorna la patente del Auto"""
-        return self.__patente
+        return self.__Patente
 
-    def uptPatente(self, pat):
-        self.__patente = pat
+    def setPatente(self, pat):
+        self.__Patente = pat
 
     def getColor(self):
         """Retorna el Color del Auto"""
-        return self.__color
+        return self.__Color
 
     def setColor(self, value):
         """Cambia el color del Auto al valor especificado"""
-        self.__color = value
+        self.__Color = value
+
+    def setYear(self, year):
+        self.__Year = year
+
+    def setChasis(self, chas):
+        self.__Nchasis = chas
+
+    def setMarca(self, marca):
+        self.__Marca = marca
+
+    def setModelo(self, modelo):
+        self.__Modelo = modelo
 
     def getInfo(self):
-        return f"Patente: {self.__patente}, Marca: {self.marca}, Modelo: {self.modelo}, Color: {self.__color}, Num Chasis: {self.nchasis}, Tipo Auto: {self.tipoAuto}, Tipo Transmision: {self.tipoTransmision}, Año: {self.year}"
+        return f"Patente: {self.__Patente}, Marca: {self.__Marca}, Modelo: {self.__Modelo}, Color: {self.__Color}, Num Chasis: {self.__Nchasis}, Año: {self.__Year}"
 
 class Mecanico:
-    def __init__(self, nom, ape, edad, tel):
-        self.nombre = str(nom).upper()
-        self.apellido = str(ape).upper()
-        self.edad = edad
-        self.telefono = str(tel).upper()
-
-        if edad >= 18:
-            self.mayorDeEdad = True
-        else:
-            self.mayorDeEdad = False
+    def __init__(self, rut, nom, ape, edad, dir):
+        self.__Rut = rut
+        self.__Nombre = str(nom).upper()
+        self.__Apellido = str(ape).upper()
+        self.__Edad = edad
+        self.__Direccion = str(dir).upper()
 
     def getInfo(self):
-        return f"Nombre: {self.nombre}, Apellido: {self.apellido}, Edad: {self.edad}, Telefono: {self.telefono}"
+        return f"Rut: {self.__Rut}, Nombre: {self.__Nombre}, Apellido: {self.__Apellido}, Edad: {self.__Edad}, Direccion: {self.__Direccion}"
+
+
 
 class Reparacion:
     def __init__(self, auto, mecanico, costo, repuestos):
-        self.autoReparado = auto
-        self.mecanicoAsignado = mecanico
-        self.costo = costo
-        self.respuestosUtilziados = repuestos
+        self.__Auto = auto
+        self.__Mecanico = mecanico
+        self.__Costo = costo
+        self.__Repuestos = repuestos
 
     def getInfo(self):
-        infoReparacion = f"INFO REPARACION: Auto Patente: {self.autoReparado.getPatente()}, Color: {self.autoReparado.getColor()}, Mecanico Asignado: {self.mecanicoAsignado.nombre} {self.mecanicoAsignado.apellido}, COSTO TOTAL ${self.costo}" 
-        return infoReparacion
-
+        return f"INFO REPARACION: Auto: {self.__Auto.getInfo()}, Mecanico: {self.__Mecanico.getInfo()}, Costo: {self.__Costo}, Repuesto: {self.__Repuestos}"
+         
     def cambiarColor(self, color):
         self.autoReparado.setColor(color)
 
 class Cliente:
     pass
-
 
 class Perro:
     #Atributo de Clase
@@ -93,7 +99,20 @@ class Menu:
         #Opciones de Leer
         print("Presiona 4 para Ver Autos del Sistema: ")
         print("Presiona 5 para Ver Mecanicos del Sistema: ")
+        print("Presiona 6 para Ver Reparaciones del Sistema: ")
+
+        print("Presiona 7 para Modificar Auto del Sistema: ")
+        print("Presiona 8 para Eliminar Auto del Sistema: ")
 
 
     def LimpiarConsola():
         os.system('cls' if os.name=='nt' else 'clear')
+
+    def ConfirmarGuardado(TipoObjeto):
+        input(f"{TipoObjeto} Guardado Exitosamente! Presiona Enter para Continuar...")
+
+    def ConfirmarEdit(TipoObjeto):
+        input(f"{TipoObjeto} Modificado Exitosamente! Presiona Enter para Continuar...")
+
+    def ConfirmarDelete(TipoObjeto):
+        input(f"{TipoObjeto} Eliminado Exitosamente! Presiona Enter para Continuar...")
